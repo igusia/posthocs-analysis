@@ -21,9 +21,9 @@ def posthocs(num, pos, output):
     erforms a set of statistical tests (Pearson, Spearman
     Counts false-positives for each of the tests: Pearson, Spearman,
     :param num: denotes how many iterations will be performed for each n
-    :param pos: denotes id of a process
+    :param pos: denotes ID of a process
     :param output: queue to which results are sent
-    :return: list of
+    :return: list of 7 measures and number of iterations with at least 1 test positive
     """
     counts=[]
     for n in range(pos*interval+5, pos*interval+5+interval):
@@ -96,7 +96,7 @@ for p in processes:
 for p in processes:
     p.join()
 
-# sort results by 1st element in a tuple (process number)
+# sort results by 1st element in a tuple (process ID)
 results = sorted([output.get() for p in processes], key=lambda x: x[0])
 results_values = np.vstack([y for x,y in results])
 np.savetxt('mp_results_{}.csv'.format(time.ctime()), results_values, delimiter=',')
