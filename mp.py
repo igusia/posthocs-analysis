@@ -1,4 +1,3 @@
-import sys
 import time
 import multiprocessing as mp
 import numpy as np
@@ -27,7 +26,7 @@ def posthocs(num, pos, output):
     """
     counts=[]
     for n in range(pos*interval+5, pos*interval+5+interval):
-        c0=c1=c2=c3=c4=c5=c6=0.0
+        c0 = c1 = c2 = c3 = c4 = c5 = c6 = 0.0
         tests_pos = 0  # number of iterations with at least 1 test passed
         numX = 0  # number of iterations with all x-halves
         numY = 0  # number of iterations with all y-halves non-empty
